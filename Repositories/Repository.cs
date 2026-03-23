@@ -15,6 +15,9 @@ public class Repository<T> where T : class
 
     public T Get(int id)
         => _connection.Get<T>(id);
+    
+    public void Create(T model)
+        => _connection.Insert(model);
 
     public bool Put(T model)
         => _connection.Update(model);
