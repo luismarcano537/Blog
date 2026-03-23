@@ -13,20 +13,10 @@ namespace blog
         static void Main(string[] args)
         {
             using var connection = new SqlConnection(ConnectionString);
-            var userRepository = new UserRepository(connection);
-
-            var users = userRepository.Get();
-            foreach (var user in users)
-            {
-                Console.WriteLine(user.ToString());
-            }
-
-            Console.Write("Localizando um usuário por ID: ");
-            var id = Console.ReadLine();
-
-            var userbyId = userRepository.Get(id);
-
-            Console.WriteLine(userbyId.ToString());
+            var userRepository = new Repository<User>(connection);
+            var RoleRepository = new Repository<Role>(connection);
+            
+            
         }
     }
 }
